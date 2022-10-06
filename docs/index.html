@@ -9,7 +9,7 @@
     
     <link href="revealjs/dist/reveal.css" rel="stylesheet">
     <link href="revealjs/dist/reset.css" rel="stylesheet">
-    <link href="revealjs/dist/theme/solarized.css" id="theme" rel="stylesheet">
+    <link href="revealjs/dist/theme/moon.css" id="theme" rel="stylesheet">
     <link href="revealjs/plugin/highlight/monokai.css" id="highlight-theme" rel="stylesheet">
     <link href="revealjs/plugin/copycode/copycode.css" rel="stylesheet">
     
@@ -72,7 +72,7 @@
   </head>
   <body>
     <div class="reveal">
-      <a class="top-left" href="https://github.com/kslides/kslides-template/" target="_blank" title="View presentation source on Github">
+      <a class="top-left" href="https://github.com/flamerecca/2022JCConf/" target="_blank" title="View presentation source on Github">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 55">
                     
@@ -80,14 +80,37 @@
                   
         </svg>
               </a>
-			<a class="top-right" href="/" target="_self" title="Go to 1st Slide">&#127968;</a>
+			<a class="top-right" href="/" target="_self" title="首頁">&#127968;</a>
 
       <div class="slides">
         <section data-markdown="" data-transition="zoom">
           <script type="text/template">
-# Markdown Slide
-## 🍒   
-Press ESC to see presentation overview.
+## 演講的投影片還沒做，就用 Kotlin 做一個吧
+### JCConf 2022 
+</script>
+        </section>
+        
+        <section data-markdown="">
+          <script type="text/template">
+## Recca Chao
+- 2019 年開始接觸 Kotlin 
+            <!-- .element: class="fragment fade-left" -->
+- JCConf Taiwan 2020 
+            <!-- .element: class="fragment fade-left" -->
+    - Kotlin coroutine 簡介 
+            <!-- .element: class="fragment fade-left" -->
+- 2021 年接手 Taiwan Kotlin User Group 管理 
+            <!-- .element: class="fragment fade-left" -->
+- 2021 Kotlin Meetup #2 
+            <!-- .element: class="fragment fade-left" -->
+    - Ktor 初探！ 
+            <!-- .element: class="fragment fade-left" -->
+- MOPCON 2021 
+            <!-- .element: class="fragment fade-left" -->
+    - Kotlin 的自動測試怎麼做？ 
+            <!-- .element: class="fragment fade-left" -->
+- 2021 Kotlin 中文開發者大會 Online 
+            <!-- .element: class="fragment fade-left" -->
 </script>
         </section>
         
@@ -121,17 +144,17 @@ fun main() {
             <script type="text/template">
 ## Slide Definition    
 ```kotlin []
-markdownSlide {
-  val src = "kslides-examples/src/main/kotlin/content/HelloWorldK.kt"
-  content {
-    """
-    ## Code with a markdownSlide     
-    ```kotlin [1,5|2,4|3]
-    ${include(githubRawUrl("kslides", "kslides", src), "[3-7]")}
-    ```
-    """
-  }
-}
+    markdownSlide {
+        val src = "kslides-examples/src/main/kotlin/content/HelloWorldK.kt"
+        content {
+            """
+## Code with a markdownSlide     
+```kotlin [1,5|2,4|3]
+${include(githubRawUrl("kslides", "kslides", src), "[3-7]")}
+```
+"""
+        }
+    }
 ```
 <a href="https://www.srcref.com/github?account=kslides&amp;repo=kslides-template&amp;branch=master&amp;path=src%2Fmain%2Fkotlin%2FSlides.kt&amp;bregex=%5Cs%2B%2F%2F+code1+begin&amp;boccur=1&amp;boffset=1&amp;btopd=true&amp;eregex=%5Cs%2B%2F%2F+code1+end&amp;eoccur=1&amp;eoffset=-1&amp;etopd=true" id="ghsrc" target="_blank">GitHub Source</a>
 </script>
@@ -156,17 +179,17 @@ fun main() {
             <h2>Slide Definition</h2>
             <pre><code class="kotlin" data-line-numbers="" data-noescape="" data-trim="">
 dslSlide {
-  val src = "kslides-examples/src/main/kotlin/content/HelloWorldK.kt"
-  val url = githubRawUrl("kslides", "kslides", src)
-  content {
-    h2 { +"Code with a dslSlide" }
-    // Display lines 3-7 of the url content and highlight lines 1 and 5, 2 and 4, and finally 3
-    codeSnippet {
-      language = "kotlin"
-      highlightPattern = "[1,5|2,4|3]"
-      +include(url, "[3-7]")
+    val src = "kslides-examples/src/main/kotlin/content/HelloWorldK.kt"
+    val url = githubRawUrl("kslides", "kslides", src)
+    content {
+        h2 { +"Code with a dslSlide" }
+        // Display lines 3-7 of the url content and highlight lines 1 and 5, 2 and 4, and finally 3
+        codeSnippet {
+            language = "kotlin"
+            highlightPattern = "[1,5|2,4|3]"
+            +include(url, "[3-7]")
+        }
     }
-  }
 }
 </code>
             </pre>
@@ -250,22 +273,22 @@ dslSlide {
 ## Slide Definition    
 ```kotlin []
 for (lines in "[8-12|3-12|2-13|]".toLinePatterns()) {
-  dslSlide {
-    autoAnimate = true
-    slideConfig {
-      transition = Transition.NONE
+    dslSlide {
+        autoAnimate = true
+        slideConfig {
+            transition = Transition.NONE
+        }
+        content {
+            h2 { +"Animated Code without Line Numbers" }
+            val file = "src/main/resources/json-example.json"
+            codeSnippet {
+                dataId = "code-animation"
+                language = "json"
+                highlightPattern = "none"
+                +include(file, linePattern = lines)
+            }
+        }
     }
-    content {
-      h2 { +"Animated Code without Line Numbers" }
-      val file = "src/main/resources/json-example.json"
-      codeSnippet {
-        dataId = "code-animation"
-        language = "json"
-        highlightPattern = "none"
-        +include(file, linePattern = lines)
-      }
-    }
-  }
 }
 ```
 <a href="https://www.srcref.com/github?account=kslides&amp;repo=kslides-template&amp;branch=master&amp;path=src%2Fmain%2Fkotlin%2FSlides.kt&amp;bregex=%5Cs%2B%2F%2F+code3+begin&amp;boccur=1&amp;boffset=1&amp;btopd=true&amp;eregex=%5Cs%2B%2F%2F+code3+end&amp;eoccur=1&amp;eoffset=-1&amp;etopd=true" id="ghsrc" target="_blank">GitHub Source</a>
@@ -349,22 +372,22 @@ for (lines in "[8-12|3-12|2-13|]".toLinePatterns()) {
 ## Slide Definition    
 ```kotlin []
 for (lines in "[8-12|3-12|2-13|]".toLinePatterns().zip(listOf(3, 3, 2, 1))) {
-  dslSlide {
-    autoAnimate = true
-    slideConfig {
-      transition = Transition.NONE
+    dslSlide {
+        autoAnimate = true
+        slideConfig {
+            transition = Transition.NONE
+        }
+        content {
+            h2 { +"Animated Code with Line Numbers" }
+            val file = "src/main/resources/json-example.json"
+            codeSnippet {
+                dataId = "code-animation"
+                language = "json"
+                lineOffSet = lines.second
+                +include(file, linePattern = lines.first)
+            }
+        }
     }
-    content {
-      h2 { +"Animated Code with Line Numbers" }
-      val file = "src/main/resources/json-example.json"
-      codeSnippet {
-        dataId = "code-animation"
-        language = "json"
-        lineOffSet = lines.second
-        +include(file, linePattern = lines.first)
-      }
-    }
-  }
 }
 ```
 <a href="https://www.srcref.com/github?account=kslides&amp;repo=kslides-template&amp;branch=master&amp;path=src%2Fmain%2Fkotlin%2FSlides.kt&amp;bregex=%5Cs%2B%2F%2F+code4+begin&amp;boccur=1&amp;boffset=1&amp;btopd=true&amp;eregex=%5Cs%2B%2F%2F+code4+end&amp;eoccur=1&amp;eoffset=-1&amp;etopd=true" id="ghsrc" target="_blank">GitHub Source</a>
@@ -386,16 +409,16 @@ for (lines in "[8-12|3-12|2-13|]".toLinePatterns().zip(listOf(3, 3, 2, 1))) {
             <script type="text/template">
 ## Slide Definition    
 ```kotlin []
-markdownSlide {
-  // Image size is controlled by css above
-  content {
-    """
-    ## Images 
-       
-    ![revealjs-image](images/revealjs.png)
-    """
-  }
-}
+    markdownSlide {
+        // Image size is controlled by css above
+        content {
+            """
+## Images 
+   
+![revealjs-image](images/revealjs.png)
+"""
+        }
+    }
 ```
 <a href="https://www.srcref.com/github?account=kslides&amp;repo=kslides-template&amp;branch=master&amp;path=src%2Fmain%2Fkotlin%2FSlides.kt&amp;bregex=%5Cs%2B%2F%2F+image+begin&amp;boccur=1&amp;boffset=1&amp;btopd=true&amp;eregex=%5Cs%2B%2F%2F+image+end&amp;eoccur=1&amp;eoffset=-1&amp;etopd=true" id="ghsrc" target="_blank">GitHub Source</a>
 </script>
@@ -422,22 +445,22 @@ markdownSlide {
             <script type="text/template">
 ## Slide Definition    
 ```kotlin
-markdownSlide {
-  id = "otherslides"
-  content {
-    """
-    ## Other Presentations Defined In Slides.kt   
-    <span style="text-align: left; text-indent: 25%;">
+    markdownSlide {
+        id = "otherslides"
+        content {
+            """
+## Other Presentations Defined In Slides.kt   
+<span style="text-align: left; text-indent: 25%;">
 
-    [🐦 greattalk1/ Slides](/greattalk1) 
+[🐦 greattalk1/ Slides](/greattalk1) 
 
-    [🐦 greattalk1/other.html Slides](/greattalk1/other.html) 
+[🐦 greattalk1/other.html Slides](/greattalk1/other.html) 
 
-    [🐦 greattalk2.html Slides](/greattalk2.html) 
-    </span>
-    """
-  }
-}
+[🐦 greattalk2.html Slides](/greattalk2.html) 
+</span>
+"""
+        }
+    }
 ```
 <a href="https://www.srcref.com/github?account=kslides&amp;repo=kslides-template&amp;branch=master&amp;path=src%2Fmain%2Fkotlin%2FSlides.kt&amp;bregex=%5Cs%2B%2F%2F+others+begin&amp;boccur=1&amp;boffset=1&amp;btopd=true&amp;eregex=%5Cs%2B%2F%2F+others+end&amp;eoccur=1&amp;eoffset=-1&amp;etopd=true" id="ghsrc" target="_blank">GitHub Source</a>
 </script>
