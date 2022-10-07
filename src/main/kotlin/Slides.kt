@@ -595,6 +595,37 @@ fun main() {
                     }
                 }
             }
+            verticalSlides {
+                markdownSlide {
+                    content {
+                        """            
+                        ## 最後宣傳一下 
+                        """
+                    }
+                }
+
+                markdownSlide {
+                    content {
+                        """            
+                        ## Kotlin.tips
+                        
+                        [https://tw.kotlin.tips/](https://tw.kotlin.tips/)
+
+                        """
+                    }
+                }
+
+                markdownSlide {
+                    content {
+                        """            
+                        ## Taiwan Kotlin User Group
+                        
+                        [https://taiwan-kotlin-user-group.github.io/](https://taiwan-kotlin-user-group.github.io/)
+
+                        """
+                    }
+                }
+            }
             markdownSlide {
                 content {
                     """            
