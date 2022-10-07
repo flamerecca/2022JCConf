@@ -597,7 +597,15 @@ fun main() {
                     }
                 }
             }
-
+            markdownSlide {
+                content {
+                    """            
+                    ## 投影片網址
+                    - [https://gitpage.reccachao.net/2022JCConf/#/](https://gitpage.reccachao.net/2022JCConf/#/)
+                    - [https://github.com/flamerecca/2022JCConf](https://github.com/flamerecca/2022JCConf)
+                    """
+                }
+            }
             markdownSlide {
                 content {
                     """            
