@@ -421,7 +421,6 @@ fun main() {
                         ```kotlin []
                         ${include(slides, beginToken = "image begin", endToken = "image end")}
                         ```
-                        <a id="ghsrc" href="${srcrefLink("image", true)}" target="_blank">GitHub Source</a>
                         """
                     }
                 }
@@ -482,7 +481,6 @@ fun main() {
                         ```kotlin []
                         ${include(slides, beginToken = "code1 begin", endToken = "code1 end")}
                         ```
-                        <a id="ghsrc" href="${srcrefLink("code1", true)}" target="_blank">GitHub Source</a>
                         """
                     }
                 }
